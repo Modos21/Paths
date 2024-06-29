@@ -22,7 +22,6 @@ public class PlayerKillListener implements Listener {
 
     @EventHandler
     public void onMonsterKill(EntityDeathEvent event) {
-        System.out.println("Event triggered");
         if (event.getDamageSource().getCausingEntity() instanceof Player player) {
             player.sendActionBar(text("+ 10xp", DARK_AQUA));
             final PathPlayer ppl = plugin.getFromCache(player);
