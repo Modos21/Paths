@@ -1,0 +1,4 @@
+name: Paths
+version: '${project.version}'
+main: me.modos21.paths.Paths
+api-version: '1.20'
