@@ -16,6 +16,20 @@ import static net.kyori.adventure.text.format.NamedTextColor.GREEN;
 
 public final class Paths extends JavaPlugin {
 
+    //todo: HashMap for all entities and the amount of EXP they give
+
+    //todo: create some basic blessings for the player
+
+    //todo: Open Inventory GUI when levelling up
+
+    //todo: level up GUI lets you choose from 3 random blessings that you don't have yet
+
+    //todo: add "paths" command to view your paths
+
+    //todo: add file saving of player data for server restarts or plugin reloads
+
+    //todo: brainstorm what should happen when you have obtained ALL blessings
+
     private static final String VERSION = "0.0.10";
 
     HashMap<UUID, PathPlayer> playerCache = new HashMap<>();
