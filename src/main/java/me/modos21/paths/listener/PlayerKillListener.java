@@ -3,6 +3,7 @@ package me.modos21.paths.listener;
 import me.modos21.paths.Paths;
 import me.modos21.paths.events.PlayerLevelUpEvent;
 import me.modos21.paths.paths.PathPlayer;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -28,7 +29,7 @@ public class PlayerKillListener implements Listener {
             ppl.incExp(10);
             player.sendMessage(text("Exp: " + ppl.getExp()));
             if (ppl.getExp() % 100 == 0) {
-                new PlayerLevelUpEvent(player);
+                Bukkit.getPluginManager().callEvent(new PlayerLevelUpEvent(player));
             }
         }
     }

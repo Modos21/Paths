@@ -14,7 +14,7 @@ import static net.kyori.adventure.text.format.NamedTextColor.GREEN;
 
 public final class Paths extends JavaPlugin {
 
-    private static final String VERSION = "0.0.6";
+    private static final String VERSION = "0.0.7";
 
     HashMap<Player, PathPlayer> playerCache = new HashMap<>();
 

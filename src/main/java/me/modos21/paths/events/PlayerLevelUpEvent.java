@@ -1,19 +1,23 @@
 package me.modos21.paths.events;
 
 import org.bukkit.entity.Player;
+import org.bukkit.event.Cancellable;
+import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
-import org.bukkit.event.entity.EntityEvent;
 import org.jetbrains.annotations.NotNull;
 
-public class PlayerLevelUpEvent extends EntityEvent {
+public class PlayerLevelUpEvent extends Event implements Cancellable {
 
     private static final HandlerList HANDLERS = new HandlerList();
+    private boolean cancelled;
+    private final Player player;
+
     public PlayerLevelUpEvent(@NotNull Player player) {
-        super(player);
+        this.player = player;
     }
 
     public Player getPlayer() {
-        return (Player) this.entity;
+        return this.player;
     }
 
     @Override
@@ -25,5 +29,15 @@ public class PlayerLevelUpEvent extends EntityEvent {
     @NotNull
     public static HandlerList getHandlerList() {
         return HANDLERS;
+    }
+
+    @Override
+    public boolean isCancelled() {
+        return cancelled;
+    }
+
+    @Override
+    public void setCancelled(boolean cancel) {
+        this.cancelled = cancel;
     }
 }
