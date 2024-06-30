@@ -11,6 +11,7 @@ import java.util.UUID;
 
 public class PathPlayer {
 
+    public static final int EXP_PER_LEVEL = 100;
     Player playerRef;
     Path[] paths;
     List<Blessing> blessings;
@@ -46,15 +47,14 @@ public class PathPlayer {
      * @param mobSlain the mob that was killed by the player
      * @return the amount by which the exp was increased
      */
-    public int incExp(Entity mobSlain) {
+    public int gainExp(Entity mobSlain) {
         int amount = PathMob.getExpValue(mobSlain);
         this.exp += amount;
         return amount;
     }
 
     public void levelUp() {
-        this.exp -= 100;
-        //todo: open inventory GUI to give the player one of 3 blessings
+        this.exp -= EXP_PER_LEVEL;
     }
 
     public void obtainBlessing(Blessing blessing) {
