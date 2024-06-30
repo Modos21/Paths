@@ -18,17 +18,17 @@ public class PlayerJoinListener implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        plugin.addToCache(event.getPlayer());
+        plugin.getPlayerManager().addToCache(event.getPlayer());
     }
 
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event) {
         Player p = event.getPlayer();
-        PathPlayer pp = plugin.getFromCache(p);
+        PathPlayer pp = plugin.getPlayerManager().getFromPlayerEntity(p);
         System.out.println("Exp of player who left: " + pp.getExp());
         System.out.println("Player cache:");
-        plugin.getPlayerCache().forEach((k, v) ->
-                System.out.println(p.getName() + ": " + v.getExp())
+        plugin.getPlayerManager().forEach((k, v) ->
+                System.out.printf("Exp of player %-12s: %d", p.getName(), v.getExp())
         );
     }
 }
