@@ -4,10 +4,8 @@ import org.bukkit.entity.*;
 
 public enum PathMob {
 
+    // if this works for all animals I'm happy
     ANIMAL(Animals.class, 0),
-//    AXOLOTL(Axolotl.class, 0),
-//    BEE(Bee.class, 0),
-//    FOX(Fox.class, 0),
     SILVERFISH(Silverfish.class, 2),
     ZOMBIE(Zombie.class, 2),
     SKELETON(Skeleton.class, 2),
@@ -25,10 +23,17 @@ public enum PathMob {
 
     public static int getExpValue(Entity mob) {
         for (PathMob pm : values()) {
-            if (pm.reference == mob.getClass()) {
+            // "bissn reflection benutzt, aber das sollte schon passen" - Ghast
+            if (Arrays.stream(mob.getClass().getInterfaces()).toList().contains(pm.reference)) {
                 return pm.expValue;
             }
         }
         return 0;
     }
+
+    public Class<? extends Entity> reference() {
+        return reference;
+    }
 }
+
+
