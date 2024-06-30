@@ -1,7 +1,7 @@
 package me.modos21.paths.listener;
 
 import me.modos21.paths.Paths;
-import me.modos21.paths.paths.PathPlayer;
+import me.modos21.paths.entities.PathPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
