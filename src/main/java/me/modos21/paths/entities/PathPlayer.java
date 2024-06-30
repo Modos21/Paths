@@ -51,4 +51,18 @@ public class PathPlayer {
         this.exp += amount;
         return amount;
     }
+
+    public void levelUp() {
+        this.exp -= 100;
+        //todo: open inventory GUI to give the player one of 3 blessings
+    }
+
+    public void obtainBlessing(Blessing blessing) {
+        this.blessings.add(blessing);
+        blessing.effect().apply(playerRef);
+    }
+
+    public Player getPlayerRef() {
+        return playerRef;
+    }
 }
