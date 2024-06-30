@@ -23,13 +23,15 @@ public class PlayerKillListener implements Listener {
     @EventHandler
     public void onMonsterKill(EntityDeathEvent event) {
         if (event.getDamageSource().getCausingEntity() instanceof Player player) {
-            player.sendActionBar(text("+ 10xp", DARK_AQUA));
             final PathPlayer ppl = plugin.getFromCache(player);
-            if (ppl.incExp(event.getEntity()) > 0) {
-                player.sendMessage(text("Exp: " + ppl.getExp()));
+            final int expGained = ppl.incExp(event.getEntity());
+            if (expGained > 0) {
+                player.sendMessage(text("[DEBUG] Exp: " + ppl.getExp()));
+                player.sendActionBar(text("+ " + expGained + "xp", DARK_AQUA));
             }
-            if (ppl.getExp() % 100 == 0) {
+            if (ppl.getExp() >= 100) {
                 Bukkit.getPluginManager().callEvent(new PlayerLevelUpEvent(player));
+                ppl.levelUp();
             }
         }
     }

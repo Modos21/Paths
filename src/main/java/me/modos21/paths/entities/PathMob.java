@@ -2,6 +2,8 @@ package me.modos21.paths.entities;
 
 import org.bukkit.entity.*;
 
+import java.util.Arrays;
+
 public enum PathMob {
 
     // if this works for all animals I'm happy
@@ -20,6 +22,7 @@ public enum PathMob {
         this.reference = reference;
         this.expValue = expValue;
     }
+
 
     public static int getExpValue(Entity mob) {
         for (PathMob pm : values()) {
