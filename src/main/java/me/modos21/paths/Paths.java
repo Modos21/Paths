@@ -1,9 +1,10 @@
 package me.modos21.paths;
 
+import me.modos21.paths.entities.PathPlayer;
 import me.modos21.paths.listener.PlayerJoinListener;
 import me.modos21.paths.listener.PlayerKillListener;
 import me.modos21.paths.listener.PlayerLevelUpListener;
-import me.modos21.paths.paths.PathPlayer;
+import me.modos21.paths.paths.blessings.Blessing;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -11,6 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.HashMap;
 import java.util.UUID;
 
+import static me.modos21.paths.paths.Path.MINER;
 import static net.kyori.adventure.text.Component.text;
 import static net.kyori.adventure.text.format.NamedTextColor.GREEN;
 
@@ -63,5 +65,12 @@ public final class Paths extends JavaPlugin {
 
     public HashMap<UUID, PathPlayer> getPlayerCache() {
         return playerCache;
+    }
+
+
+    private void createBlessings() {
+        final Blessing minersSight = new Blessing(MINER, "Miner's Sight", player -> {
+
+        });
     }
 }
